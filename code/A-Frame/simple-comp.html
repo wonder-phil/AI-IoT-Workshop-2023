@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="simple-comp.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity simple-comp></a-entity>
+	  <a-entity other-comp></a-entity>
+	  <a-entity other-comp="message: Hello, Metaverse!"></a-entity>
+	  <a-entity other-comp__helloworld="message: Hello, World! A great day!"
+                other-comp__metaverse="message: Hello, Metaverse AGAIN!"></a-entity>
+    </a-scene>
+  </body>
+</html>

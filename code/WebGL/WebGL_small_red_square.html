@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<style>
+		
+	</style>
+	<head>
+		<title>Workshop</title>
+	</head>
+	<header>
+	   <h1>Example</h1>
+	</header>
+
+	<body>
+		<h3>WebGL</h3>
+		<canvas id='myCanvas' width="100vh" height ="100vh"></canvas>
+	</body>
+	<script type="text/javascript">
+		const g1 = myCanvas.getContext('webgl');
+		g1.clearColor(1,0,0,1);
+		g1.clear(g1.COLOR_BUFFER_BIT);
+		if (!g1) {
+			alert('WebGL not available');
+			console.log('WebGL not available');
+		} else {
+			alert('WebGL good');
+			console.log('WebGL good');
+		}
+		</script>
+</html>

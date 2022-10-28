@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Workshop</title>
+	</head>
+	<header>
+	   <h1>Example</h1>
+	</header>
+
+	<body>
+		<h3>WebGL</h3>
+		<canvas id='canvas'></canvas>
+	</body>
+	<script type="text/javascript">
+		const g1 = canvas.getContext('webgl');
+		if (!g1) {
+			alert('WebGL not available');
+			console.log('WebGL not available');
+		} else {
+			alert('WebGL good');
+			console.log('WebGL good');
+		}
+		</script>
+</html>
