@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script type="text/javascript">
+            const canvas = document.createElement('canvas');
+            canvas.width = 640;
+            canvas.height = 480;
+            document.body.appendChild(canvas);
+
+            const gl = canvas.getContext('webgl');
+            if (!gl) {
+                throw new Error('Unable to use WebGL. Your device may not support it.');
+            }
+
+            gl.clearColor(0, 0.5, 1, 1);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+
+            
+			   gl.Color3f(1,0,0); gl.vertex3f(-0.6, -0.75, 0.5);
+			   gl.Color3f(0,1,0); gl.vertex3f( 0.6, -0.75, 0.0);
+			   gl.Color3f(0,0,1); gl.vertex3f( 0.0, 0.75, 0.5);
+			
+			
+			
+			
+        </script>
+    </body>
+</html>

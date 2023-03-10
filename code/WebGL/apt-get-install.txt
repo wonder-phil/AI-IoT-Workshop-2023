@@ -1,0 +1,7 @@
+    1  sudo apt-get update
+    2  sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev
+    8  sudo snap install emacs 
+    9  sudo apt  install emacs-gtk
+   12  sudo apt install g++
+   66  sudo apt-get install libglew-dev
+  119  sudo apt install libglm-dev

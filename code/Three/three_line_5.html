@@ -8,12 +8,14 @@
 		</style>
 	</head>
 	<heading>
-	<h1>Three JS line 3</h1>
+	<h1>Three JS JSJSJS line 5.1</h1>
 	</heading>
 	<body>
 	
 		<script src="js/three.js"></script>
 		<script>
+		
+		
 			const renderer = new THREE.WebGLRenderer();
 			const scene = new THREE.Scene();
 			renderer.setSize( window.innerWidth, window.innerHeight );
@@ -37,15 +39,23 @@
 			scene.add( line );
 			
 			function animate() {
-				//requestAnimationFrame( animate );
+				//
 				
 			
-				setInterval( () => {
-				line.rotation.x += 0.1; renderer.render( scene, camera ); }, 1500);
+				//const interval = setInterval( () => {
+					requestAnimationFrame( animate );
+					line.rotation.x += 0.1; 
+					renderer.render( scene, camera );
+				//}, 1500);
+				//clearInterval(interval);
+				console.log('Here');
 				
 		
 			}
-			//const interval = setInterval( () => { animate(); clearInterval(interval); }, 1000);
+			
+			const interval = setInterval( () => { animate(); }, 1500);
+			//clearInterval(interval); 
+			
 		
 		</script>
 	</body>

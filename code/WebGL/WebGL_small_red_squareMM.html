@@ -16,9 +16,24 @@
 		<canvas id='myCanvas' width="100vh" height ="100vh"></canvas>
 	</body>
 	<script type="text/javascript">
+	var sin = Math.sin(Math.PI/6);
+               var cos = Math.cos(Math.PI/6);
+			   
 		const g1 = myCanvas.getContext('webgl');
+		//const g5 = g1.getContext('2D');
+		
+		const canvas = selector('myCanvas');
+		let ctx = canvas.getContext('2d');
 		g1.viewport(0, 0, 200, 200);
 		g1.clearColor(1,0,0,1);
+		let w = 1.5; // width  (x)
+		let h = 0.7; // height (y)
+		let d = 1; // depth  (z)
+
+		let scaleMatrix = [w, 0, 0, 0, 0, h, 0, 0, 0, 0, d, 0, 0, 0, 0, 1];
+		//g1.MultMatrix(scaleMatrix);
+		ctx.transform(cos, sin, -sin, cos, 0, 0);
+		
 		g1.clear(g1.COLOR_BUFFER_BIT);
 		if (!g1) {
 			alert('WebGL not available');

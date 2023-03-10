@@ -23,10 +23,29 @@
 			
 			const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			//const material = new THREE.MeshPhongMaterial( { color: 0x00ff00 } );
 			const cube = new THREE.Mesh( geometry, material );
+			cube.position.set(0, 0, 0);
+			
 			scene.add( cube );
+			
+			const cube_1 = cube.clone();
+			cube_1.scale *= 0.5;
+			
+			cube_1_edgeGeo = new THREE.EdgesGeometry(cube_1);
+			line = new THREE.Line(
+				cube_1_edgeGeo,
+				new THREE.LineBasicMaterial({
+					color: new THREE.Color('white')
+				}));
+			scene.add(line);
+			cube_1.position.set(5,0,0);
+			
+			scene.add(cube_1);
 
 			camera.position.z = 5;
+			
+			renderer.render( scene, camera );
 		</script>
 	</body>
 </html>

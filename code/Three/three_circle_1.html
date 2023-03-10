@@ -19,18 +19,26 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
-			const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
+			const camera = new THREE.PerspectiveCamera( 15, window.innerWidth / window.innerHeight, 1, 500 );
 			camera.position.set( 0, 0, 100 );
 			camera.lookAt( 0, 0, 0 );
 			
-			const geometry = new THREE.CircleGeometry( 5, 32 );
-			const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+			//const geometry = new THREE.CircleGeometry( 10, 6 );
+			const geometry = new THREE.BoxGeometry( 4,4,4 );
+			const material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
 			const circle = new THREE.Mesh( geometry, material );
 			scene.add( circle );
 			
+			const light = new THREE.DirectionalLight(0xffffff, 1);
+			light.position.set(0,30,30);
+			scene.add(light);
+			const d = new Date();
+			let time = d.getTime();
+			
 			function animate() {
 				requestAnimationFrame( animate );
-				circle.rotation.x += 0.01;
+				//circle.rotation.x += 0.01;
+				circle.rotation.y += time;
 				
 				renderer.render( scene, camera );
 			}

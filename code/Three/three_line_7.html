@@ -2,18 +2,20 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>My first three.js app</title>
+		<title>Some three.js app</title>
 		<style>
 			body { margin: 0; }
 		</style>
 	</head>
 	<heading>
-	<h1>Three JS line 3</h1>
+	<h1>Three JS line 7</h1>
 	</heading>
 	<body>
 	
 		<script src="js/three.js"></script>
 		<script>
+		
+		
 			const renderer = new THREE.WebGLRenderer();
 			const scene = new THREE.Scene();
 			renderer.setSize( window.innerWidth, window.innerHeight );
@@ -36,16 +38,15 @@
 			
 			scene.add( line );
 			
-			function animate() {
-				//requestAnimationFrame( animate );
-				
-			
-				setInterval( () => {
-				line.rotation.x += 0.1; renderer.render( scene, camera ); }, 1500);
-				
-		
+			const interval = setInterval( () => { line.rotation.x += 0.1; }, 1500);
+			function animate(time) {
+				requestAnimationFrame( animate );
+				renderer.render( scene, camera );
+				//console.log('Animate:' + time.toString());
 			}
-			//const interval = setInterval( () => { animate(); clearInterval(interval); }, 1000);
+			animate();
+			
+			
 		
 		</script>
 	</body>
