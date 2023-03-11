@@ -38,6 +38,7 @@
 			function animate() {
 				requestAnimationFrame( animate );
 				//circle.rotation.x += 0.01;
+				console.log("time: " + time.toString());
 				circle.rotation.y += time;
 				
 				renderer.render( scene, camera );

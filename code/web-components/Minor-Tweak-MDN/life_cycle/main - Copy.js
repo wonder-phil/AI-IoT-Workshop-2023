@@ -7,6 +7,7 @@ class Square extends HTMLElement {
   }
 
   constructor() {
+    // Always call super first in constructor
     super();
 
     const shadow = this.attachShadow({mode: 'open'});
@@ -35,15 +36,19 @@ class Square extends HTMLElement {
     updateStyle(this);
   }
   
-  hide() {
-	console.log('Custom square element HIDE.');
-	myhide(this);
+  rotate() {
+	  console.log('Custom square element ROTATE 5.');
+	  myrotate(this);
   }
   
-    
   show() {
 	  console.log('Custom square element SHOW.');
 	  myshow(this);
+  }
+  
+  hide() {
+	  console.log('Custom square element HIDE.');
+	  myhide(this);
   }
   
   flash() {
@@ -58,16 +63,13 @@ class Square extends HTMLElement {
 
 customElements.define('custom-square', Square);
 
-
-
-
 function myshow(elem) {
   const shadow = elem.shadowRoot;
   shadow.querySelector('style').textContent = `
     div {
       width: ${elem.getAttribute('l')}px;
       height: ${elem.getAttribute('l')}px;
-	  background-color: ${elem.getAttribute('c')};
+      background-color: ${elem.getAttribute('c')};
 	  visibility: 'visible';
     }
   `;
@@ -79,7 +81,23 @@ function myhide(elem) {
     div {
       width: ${elem.getAttribute('l')}px;
       height: ${elem.getAttribute('l')}px;
-      visibility: 'hidden';
+	  visibility: 'hidden';
+    }
+  `;
+}
+
+function myrotate(elem) {
+	const shadow = elem.shadowRoot;
+	shadow.querySelector('style').textContent = `
+    div {
+      width: ${elem.getAttribute('l')}px;
+      height: ${elem.getAttribute('l')}px;
+      background-color: ${elem.getAttribute('c')};
+	  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+	  -moz-transform: rotate(20deg);
+	  -webkit-transform: 'rotate(20deg)';
+      -ms-transform: rotate(20deg);
+      transform: rotate(20deg);
     }
   `;
 }
@@ -116,6 +134,7 @@ add.onclick = function() {
   square = document.createElement('custom-square');
   square.setAttribute('l', '100');
   square.setAttribute('c', 'red');
+  square.rotate();
   document.body.appendChild(square);
 
   update.disabled = false;
@@ -139,26 +158,19 @@ remove.onclick = function() {
 };
 
 hide.onclick = function() {
+  // Hide square
   square.hide();
-  update.disabled = true;
-  remove.disabled = true;
-  add.disabled = true;
+  
 };
-
 
 show.onclick = function() {
+  // Show square
   square.show();
-  update.disabled = false;
-  remove.disabled = false;
-  add.disabled = true;
+  
 };
 
-
 flash.onclick = function() {
-  update.disabled = true;
-  remove.disabled = true;
-  add.disabled = true;
-  
+  // Flash square
   square.flash();
-
+  
 };
