@@ -28,13 +28,13 @@
 			scene.add( cube );
 
 			camera.position.z = 3;
-			camera.position.y = 1;
+			camera.position.y = 0;
 			
-			setInterval( () => { cube.rotation.y += 0.1; }, 100 );
+			//setInterval( () => { cube.rotation.y += 1; }, 100 );
 			
 			function animate() {
 				requestAnimationFrame( animate );
-				
+				cube.rotation.y += 0.01;
 				renderer.render( scene, camera );
 			}
 			animate();

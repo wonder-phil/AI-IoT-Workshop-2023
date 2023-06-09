@@ -26,7 +26,7 @@ let sun = new THREE.Mesh(g, new THREE.MeshBasicMaterial({color: 0xffff7f}));
 scene.add(sun);
 
 let spheres = [];
-let spheresCount = 100;
+let spheresCount = 200;
 for(let i = 0; i < spheresCount; i++){
 	addSphere();
 }

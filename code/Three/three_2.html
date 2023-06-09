@@ -15,11 +15,23 @@
 		<script src="js/three.js"></script>
 		<script>
 			const scene = new THREE.Scene();
+			const sphere = new THREE.SphereGeometry();
+			const object = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( 0x770000 ) );
+			const box = new THREE.BoxHelper( object, 0x77ff00 );
+			scene.add( box );
+			
 			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
 			const renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
+			
+			function animate() {
+				requestAnimationFrame( animate );
+				
+				renderer.render( scene, camera );
+			}
+			animate();
 		</script>
 	</body>
 </html>

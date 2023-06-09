@@ -24,7 +24,7 @@ class AttachToMe extends HTMLElement {
 		document.getElementById("myList").appendChild(node);
 		
 		if (last_two_digits == 23) {
-			alert("Yeah!");
+			alert("Yeah! AI-IoT");
 		}
 	}
   
